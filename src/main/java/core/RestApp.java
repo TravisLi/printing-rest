@@ -1,6 +1,7 @@
 package core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import model.ProductCategory;
 import model.User;
 
 @SpringBootApplication
@@ -32,6 +34,14 @@ public class RestApp {
 		return model;
 	}
 
+	@RequestMapping(value="/get/productCategory",method = {RequestMethod.OPTIONS,RequestMethod.GET})
+	public List<ProductCategory> getProductCategory() {
+
+		logger.info("Get product category");
+
+		return null;
+	}
+	
 	@RequestMapping(value="/login/{username}/{pwd}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
 	public User login(@PathVariable("username")String username, @PathVariable("pwd")String pwd) {
 
