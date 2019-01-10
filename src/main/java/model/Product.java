@@ -3,6 +3,7 @@ package model;
 public class Product {
 
 	private Integer id;
+	private String name;
 	private ProductCategory productCategory;
 	private Material material;
 	private Integer height;
@@ -16,6 +17,12 @@ public class Product {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public ProductCategory getProductCategory() {
 		return productCategory;
