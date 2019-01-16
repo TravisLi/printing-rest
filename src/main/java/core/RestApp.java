@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import model.Material;
+import model.Product;
 import model.ProductCategory;
 import model.User;
 
@@ -52,16 +54,43 @@ public class RestApp {
 			list.add(pc);
 		}
 		
-		return null;
+		return list;
 	}
 	
 	@RequestMapping(value="/get/product/{productCatId}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
-	public User login(@PathVariable("prodCatId")Integer productCatId) {
+	public List<Product> login(@PathVariable("productCatId")Integer productCatId) {
 
 		logger.info("Get product of Product Category ID");
-
 		
-		return null;
+		ProductCategory c = new ProductCategory();
+		c.setId(productCatId);
+		c.setName("Production Cat");
+		
+		List<Product> list = new ArrayList<Product>();
+		
+		
+		for(int i=1;i<10;i++){
+		
+			Product p = new Product();
+			p.setId(i);
+			p.setBaseQuantity(1000);
+			
+			Material m = new Material();
+			m.setId(i);
+			m.setName("Material" + i);
+			
+			p.setMaterial(m);
+			p.setHeight(100);
+			p.setWidth(100);
+			p.setName("Product" + i);
+			p.setUnit("Unit");
+			p.setPrice(new Double(1000*i));
+			
+			list.add(p);
+		}
+		
+		
+		return list;
 	}
 	
 	@RequestMapping(value="/login/{username}/{pwd}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
