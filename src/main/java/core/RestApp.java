@@ -37,7 +37,7 @@ public class RestApp {
 		return model;
 	}
 
-	@RequestMapping(value="/get/productCategory",method = {RequestMethod.OPTIONS,RequestMethod.GET})
+	@RequestMapping(value="/productCategory/get",method = {RequestMethod.OPTIONS,RequestMethod.GET})
 	public List<ProductCategory> getProductCategory() {
 
 		logger.info("Get product category");
@@ -57,7 +57,7 @@ public class RestApp {
 		return list;
 	}
 	
-	@RequestMapping(value="/get/product/{productCatId}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
+	@RequestMapping(value="/product/get/{productCatId}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
 	public List<Product> login(@PathVariable("productCatId")Integer productCatId) {
 
 		logger.info("Get product of Product Category ID");
