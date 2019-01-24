@@ -8,6 +8,7 @@ public class ProductCategory {
 	private String name;
 	private String image;
 	private List<Product> products;
+	private List<Material> materials;
 	
 	public Integer getId() {
 		return id;
@@ -32,6 +33,12 @@ public class ProductCategory {
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	public List<Material> getMaterials() {
+		return materials;
+	}
+	public void setMaterials(List<Material> materials) {
+		this.materials = materials;
 	}
 	
 	

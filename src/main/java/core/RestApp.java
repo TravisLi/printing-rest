@@ -127,7 +127,7 @@ public class RestApp {
 
 		ProductCategory c = new ProductCategory();
 		c.setId(1);
-		c.setName("Production Cat");
+		c.setName("productCat1");
 
 		List<Product> list = new ArrayList<Product>();
 
@@ -149,6 +149,8 @@ public class RestApp {
 			p.setUnit("Unit");
 			p.setPrice(new Double(1000*i));
 
+			p.setProductCategory(c);
+			
 			list.add(p);
 		}
 
@@ -157,7 +159,7 @@ public class RestApp {
 	}
 
 	//Product Category section
-	@RequestMapping(value="/productCategory/all/get",method = RequestMethod.GET)
+	@RequestMapping(value="/productCategory/get/all",method = RequestMethod.GET)
 	public List<ProductCategory> getAllProductCategory() {
 
 		logger.info("Get all product categories");
@@ -177,7 +179,7 @@ public class RestApp {
 		return list;
 	}
 
-	
+
 	@RequestMapping(value="/productCategory/get/{productCatId}",method = RequestMethod.GET)
 	public ProductCategory getProductCategory(@PathVariable("productCatId")Integer productCatId) {
 
@@ -244,13 +246,33 @@ public class RestApp {
 		c.setName("Production Cat");
 
 		List<ProductCategory> list = new ArrayList<ProductCategory>();
-		
+
 		list.add(c);
-		
+
 		return list;
 	}
-	
-	
+
+	//Material section
+	@RequestMapping(value="/material/get/all",method = RequestMethod.GET)
+	public List<Material> getAllMaterial() {
+
+		logger.info("Get all materials");
+
+		List<Material> list = new ArrayList<Material>();
+
+		for(int i=1;i<10;i++){
+
+			Material m = new Material();
+			m.setId(i);
+			m.setName("material" + i);
+
+			list.add(m);
+		}
+
+		return list;
+	}
+
+
 
 	//login
 	@RequestMapping(value="/login/{username}/{pwd}",method = {RequestMethod.OPTIONS,RequestMethod.GET})
